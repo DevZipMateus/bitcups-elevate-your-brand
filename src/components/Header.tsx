@@ -136,7 +136,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background/98 backdrop-blur-md shadow-lg animate-fade-in">
+          <div className="md:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background shadow-lg animate-fade-in border-t border-border">
             <ul className="flex flex-col py-4">
               {navLinks.map(link => (
                 <li key={link.href}>
