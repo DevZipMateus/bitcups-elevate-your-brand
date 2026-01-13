@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logoBitcups from '@/assets/logo-bitcups.png';
@@ -26,6 +26,8 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +36,24 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMobileMenuOpen &&
+        menuRef.current &&
+        buttonRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isPage?: boolean) => {
     setIsMobileMenuOpen(false);
@@ -126,8 +146,9 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button 
+            ref={buttonRef}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-            className={`md:hidden p-2 ${isTransparent ? 'text-white' : 'text-foreground'}`} 
+            className={`md:hidden p-2 ${isTransparent && !isMobileMenuOpen ? 'text-white' : 'text-foreground'}`} 
             aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -136,7 +157,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background shadow-lg animate-fade-in border-t border-border">
+          <div ref={menuRef} className="md:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background shadow-lg animate-fade-in border-t border-border">
             <ul className="flex flex-col py-4">
               {navLinks.map(link => (
                 <li key={link.href}>
