@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logoBitcups from '@/assets/logo-bitcups.png';
 import heroBackground from '@/assets/hero-background.jpg';
 
@@ -110,6 +111,15 @@ export default function Hero() {
           >
             Ver produtos
           </a>
+          <Link
+            to="/vitrine"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-orange/90 text-white font-semibold text-lg rounded-lg shadow-lg transition-all duration-300 hover:bg-orange hover:scale-105"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            Vitrine
+          </Link>
         </div>
       </div>
 
