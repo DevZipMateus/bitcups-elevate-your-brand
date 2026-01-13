@@ -13,7 +13,7 @@ export default function Footer() {
             <img
               src={logoBitcups}
               alt="Bitcups"
-              className="h-16 w-auto"
+              className="h-28 w-auto"
             />
             <p className="text-white/70 text-sm italic">
               "Outro rei não existirá, porque um raio não cai duas vezes no mesmo lugar."
