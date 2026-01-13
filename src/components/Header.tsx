@@ -84,10 +84,10 @@ export default function Header() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || location.pathname !== '/' ? 'bg-background/95 backdrop-blur-md shadow-soft' : 'bg-transparent'}`}>
       <div className="section-container">
-        <nav className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <a href="/" onClick={handleLogoClick} className="flex items-center">
-            <img src={logoBitcups} alt="Bitcups - Artigos Personalizados" className="h-36 w-auto" />
+            <img src={logoBitcups} alt="Bitcups - Artigos Personalizados" className="h-20 sm:h-28 md:h-36 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
@@ -117,7 +117,7 @@ export default function Header() {
                 href="https://wa.me/5571982602013" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-gold text-primary-foreground font-semibold rounded-lg shadow-gold transition-transform duration-200 hover:scale-105"
+                className="inline-flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 bg-gradient-gold text-primary-foreground font-semibold text-sm lg:text-base rounded-lg shadow-gold transition-transform duration-200 hover:scale-105"
               >
                 Fale conosco
               </a>
@@ -136,7 +136,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 right-0 bg-background/98 backdrop-blur-md shadow-lg animate-fade-in">
+          <div className="md:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background/98 backdrop-blur-md shadow-lg animate-fade-in">
             <ul className="flex flex-col py-4">
               {navLinks.map(link => (
                 <li key={link.href}>
