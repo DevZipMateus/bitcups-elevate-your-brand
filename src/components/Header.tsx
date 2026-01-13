@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logoBitcups from '@/assets/logo-bitcups.png';
 
 const navLinks = [
@@ -7,11 +8,14 @@ const navLinks = [
   { href: '#sobre', label: 'Sobre' },
   { href: '#produtos', label: 'Produtos' },
   { href: '#contato', label: 'Contato' },
+  { href: '/vitrine', label: 'Vitrine', isPage: true },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,10 +25,44 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isPage?: boolean) => {
+    setIsMobileMenuOpen(false);
+    
+    if (isPage) {
+      e.preventDefault();
+      navigate(href);
+      return;
+    }
+    
+    // If we're on a different page and clicking an anchor, navigate to home first
+    if (location.pathname !== '/') {
+      e.preventDefault();
+      navigate('/' + href);
+      return;
+    }
+    
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - headerHeight,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
+    
+    if (location.pathname !== '/') {
+      navigate('/');
+      return;
+    }
+    
+    const element = document.querySelector('#inicio');
     if (element) {
       const headerHeight = 80;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
@@ -38,7 +76,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || location.pathname !== '/'
           ? 'bg-background/95 backdrop-blur-md shadow-soft'
           : 'bg-transparent'
       }`}
@@ -46,7 +84,7 @@ export default function Header() {
       <div className="section-container">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#inicio" onClick={(e) => handleNavClick(e, '#inicio')} className="flex items-center">
+          <a href="/" onClick={handleLogoClick} className="flex items-center">
             <img
               src={logoBitcups}
               alt="Bitcups - Artigos Personalizados"
@@ -58,15 +96,24 @@ export default function Header() {
           <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className={`font-medium transition-colors duration-200 hover:text-primary ${
-                    isScrolled ? 'text-foreground' : 'text-foreground'
-                  }`}
-                >
-                  {link.label}
-                </a>
+                {'isPage' in link && link.isPage ? (
+                  <Link
+                    to={link.href}
+                    className={`font-medium transition-colors duration-200 hover:text-primary ${
+                      location.pathname === link.href ? 'text-primary' : 'text-foreground'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="font-medium transition-colors duration-200 hover:text-primary text-foreground"
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
             <li>
@@ -97,13 +144,25 @@ export default function Header() {
             <ul className="flex flex-col py-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="block px-6 py-3 font-medium text-foreground hover:bg-secondary hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </a>
+                  {'isPage' in link && link.isPage ? (
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block px-6 py-3 font-medium hover:bg-secondary hover:text-primary transition-colors ${
+                        location.pathname === link.href ? 'text-primary' : 'text-foreground'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className="block px-6 py-3 font-medium text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
               <li className="px-6 py-3">
