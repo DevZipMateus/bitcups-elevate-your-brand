@@ -1,7 +1,10 @@
 import logoBitcups from '@/assets/logo-bitcups.png';
 import heroBackground from '@/assets/hero-background.jpg';
+import { useParallax } from '@/hooks/useParallax';
 
 export default function Hero() {
+  const parallaxOffset = useParallax(0.4);
+
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -20,30 +23,66 @@ export default function Hero() {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0">
+      {/* Background Image with Parallax */}
+      <div 
+        className="absolute inset-0 scale-110"
+        style={{ transform: `translateY(${parallaxOffset}px) scale(1.1)` }}
+      >
         <img
           src={heroBackground}
           alt="Produtos personalizados Bitcups - canecas, chaveiros, camisas e mais"
           className="w-full h-full object-cover"
         />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       </div>
+      
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
-      {/* Floating Crown Elements */}
-      <div className="absolute top-1/4 left-10 w-20 h-20 opacity-10 animate-float" style={{ animationDelay: '0s' }}>
+      {/* Floating Crown Elements with Parallax */}
+      <div 
+        className="absolute top-1/4 left-10 w-20 h-20 opacity-10 animate-float"
+        style={{ 
+          transform: `translateY(${parallaxOffset * 0.3}px)`,
+          animationDelay: '0s' 
+        }}
+      >
         <svg viewBox="0 0 100 80" fill="currentColor" className="text-gold">
           <path d="M50 0L65 30L100 40L75 60L80 100H20L25 60L0 40L35 30L50 0Z" />
         </svg>
       </div>
-      <div className="absolute bottom-1/4 right-10 w-16 h-16 opacity-10 animate-float" style={{ animationDelay: '1s' }}>
+      <div 
+        className="absolute top-1/3 right-1/4 w-12 h-12 opacity-5"
+        style={{ transform: `translateY(${parallaxOffset * 0.6}px)` }}
+      >
+        <svg viewBox="0 0 100 80" fill="currentColor" className="text-gold-light">
+          <path d="M50 0L65 30L100 40L75 60L80 100H20L25 60L0 40L35 30L50 0Z" />
+        </svg>
+      </div>
+      <div 
+        className="absolute bottom-1/4 right-10 w-16 h-16 opacity-10 animate-float"
+        style={{ 
+          transform: `translateY(${parallaxOffset * 0.5}px)`,
+          animationDelay: '1s' 
+        }}
+      >
         <svg viewBox="0 0 100 80" fill="currentColor" className="text-orange">
           <path d="M50 0L65 30L100 40L75 60L80 100H20L25 60L0 40L35 30L50 0Z" />
         </svg>
       </div>
+      <div 
+        className="absolute bottom-1/3 left-1/4 w-10 h-10 opacity-5"
+        style={{ transform: `translateY(${parallaxOffset * 0.8}px)` }}
+      >
+        <svg viewBox="0 0 100 80" fill="currentColor" className="text-orange-light">
+          <path d="M50 0L65 30L100 40L75 60L80 100H20L25 60L0 40L35 30L50 0Z" />
+        </svg>
+      </div>
 
-      <div className="section-container relative z-10 text-center pt-20">
+      {/* Content with inverse parallax for depth */}
+      <div 
+        className="section-container relative z-10 text-center pt-20"
+        style={{ transform: `translateY(${parallaxOffset * -0.1}px)` }}
+      >
         {/* Logo */}
         <div className="mb-8 animate-fade-up">
           <img
