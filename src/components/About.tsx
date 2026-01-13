@@ -1,6 +1,5 @@
 import { Crown, Target, Heart, TrendingUp, Sparkles, Users } from 'lucide-react';
 import aboutCraftsmanship from '@/assets/about-craftsmanship.jpg';
-import { useParallax } from '@/hooks/useParallax';
 
 const values = [
   {
@@ -26,33 +25,19 @@ const values = [
 ];
 
 export default function About() {
-  const parallaxOffset = useParallax(0.1);
-
   return (
     <section id="sobre" className="py-20 lg:py-28 bg-background relative overflow-hidden">
-      {/* Parallax decorative elements */}
-      <div 
-        className="absolute top-20 -right-20 w-64 h-64 bg-gradient-gold/5 rounded-full blur-3xl"
-        style={{ transform: `translateY(${parallaxOffset * 2}px)` }}
-      />
-      <div 
-        className="absolute bottom-20 -left-20 w-48 h-48 bg-orange/5 rounded-full blur-3xl"
-        style={{ transform: `translateY(${parallaxOffset * -1.5}px)` }}
-      />
+      {/* Decorative elements */}
+      <div className="absolute top-20 -right-20 w-64 h-64 bg-gradient-gold/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 -left-20 w-48 h-48 bg-orange/5 rounded-full blur-3xl" />
       
       {/* Floating crown elements */}
-      <div 
-        className="absolute top-40 right-10 w-8 h-8 opacity-5"
-        style={{ transform: `translateY(${parallaxOffset * 3}px) rotate(${parallaxOffset * 0.1}deg)` }}
-      >
+      <div className="absolute top-40 right-10 w-8 h-8 opacity-5">
         <svg viewBox="0 0 100 80" fill="currentColor" className="text-primary">
           <path d="M50 0L65 30L100 40L75 60L80 100H20L25 60L0 40L35 30L50 0Z" />
         </svg>
       </div>
-      <div 
-        className="absolute bottom-40 left-10 w-12 h-12 opacity-5"
-        style={{ transform: `translateY(${parallaxOffset * -2}px) rotate(${parallaxOffset * -0.1}deg)` }}
-      >
+      <div className="absolute bottom-40 left-10 w-12 h-12 opacity-5">
         <svg viewBox="0 0 100 80" fill="currentColor" className="text-primary">
           <path d="M50 0L65 30L100 40L75 60L80 100H20L25 60L0 40L35 30L50 0Z" />
         </svg>
@@ -74,12 +59,9 @@ export default function About() {
 
         {/* Story Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Image with parallax */}
+          {/* Image */}
           <div className="relative order-2 lg:order-1">
-            <div 
-              className="relative rounded-2xl overflow-hidden shadow-card"
-              style={{ transform: `translateY(${parallaxOffset * 0.5}px)` }}
-            >
+            <div className="relative rounded-2xl overflow-hidden shadow-card">
               <img
                 src={aboutCraftsmanship}
                 alt="Artesão trabalhando em caneca personalizada na oficina Bitcups"
@@ -87,15 +69,9 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
-            {/* Decorative elements with parallax */}
-            <div 
-              className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-gold rounded-2xl -z-10"
-              style={{ transform: `translateY(${parallaxOffset * 1.2}px)` }}
-            />
-            <div 
-              className="absolute -top-4 -left-4 w-16 h-16 bg-secondary rounded-xl -z-10"
-              style={{ transform: `translateY(${parallaxOffset * -0.8}px)` }}
-            />
+            {/* Decorative elements */}
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-gold rounded-2xl -z-10" />
+            <div className="absolute -top-4 -left-4 w-16 h-16 bg-secondary rounded-xl -z-10" />
           </div>
 
           {/* Story Text */}
@@ -122,10 +98,7 @@ export default function About() {
 
         {/* Vision/Mission Cards */}
         <div className="grid md:grid-cols-2 gap-6 mb-16">
-          <div 
-            className="p-6 rounded-2xl bg-gradient-card shadow-card border border-border"
-            style={{ transform: `translateY(${parallaxOffset * 0.3}px)` }}
-          >
+          <div className="p-6 rounded-2xl bg-gradient-card shadow-card border border-border">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-gradient-gold rounded-lg">
                 <Target className="w-5 h-5 text-primary-foreground" />
@@ -137,10 +110,7 @@ export default function About() {
             </p>
           </div>
 
-          <div 
-            className="p-6 rounded-2xl bg-gradient-card shadow-card border border-border"
-            style={{ transform: `translateY(${parallaxOffset * 0.5}px)` }}
-          >
+          <div className="p-6 rounded-2xl bg-gradient-card shadow-card border border-border">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-gradient-gold rounded-lg">
                 <Heart className="w-5 h-5 text-primary-foreground" />
@@ -159,10 +129,7 @@ export default function About() {
             <div
               key={value.title}
               className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-card"
-              style={{ 
-                animationDelay: `${index * 0.1}s`,
-                transform: `translateY(${parallaxOffset * (0.2 + index * 0.1)}px)` 
-              }}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="p-3 bg-secondary rounded-xl w-fit mb-4 group-hover:bg-gradient-gold transition-all duration-300">
                 <value.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
