@@ -97,7 +97,7 @@ export default function Header() {
                 {'isPage' in link && link.isPage ? (
                   <Link 
                     to={link.href} 
-                    className={`font-medium transition-colors duration-200 hover:text-primary ${location.pathname === link.href ? 'text-primary' : isTransparent ? 'text-white' : 'text-foreground'}`}
+                    className={`font-medium transition-colors duration-200 ${location.pathname === link.href ? 'text-primary' : isTransparent ? 'text-white hover:text-gold' : 'text-foreground hover:text-primary'}`}
                   >
                     {link.label}
                   </Link>
@@ -105,7 +105,7 @@ export default function Header() {
                   <a 
                     href={link.href} 
                     onClick={e => handleNavClick(e, link.href)} 
-                    className={`font-medium transition-colors duration-200 hover:text-primary ${isTransparent ? 'text-white' : 'text-foreground'}`}
+                    className={`font-medium transition-colors duration-200 ${isTransparent ? 'text-white hover:text-gold' : 'text-foreground hover:text-primary'}`}
                   >
                     {link.label}
                   </a>
