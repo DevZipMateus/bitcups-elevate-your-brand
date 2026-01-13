@@ -67,7 +67,7 @@ export default function Hero() {
           <img
             src={logoBitcups}
             alt="Bitcups"
-            className="h-32 md:h-44 lg:h-52 w-auto mx-auto drop-shadow-2xl"
+            className="h-40 md:h-56 lg:h-64 w-auto mx-auto drop-shadow-2xl"
           />
         </div>
 
