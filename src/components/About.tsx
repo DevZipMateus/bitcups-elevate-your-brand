@@ -1,5 +1,6 @@
 import { Crown, Target, Heart, TrendingUp, Sparkles, Users } from 'lucide-react';
 import aboutCraftsmanship from '@/assets/about-craftsmanship.jpg';
+import ScrollReveal from './ScrollReveal';
 
 const values = [
   {
@@ -45,22 +46,24 @@ export default function About() {
 
       <div className="section-container relative z-10 px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 bg-secondary text-primary font-semibold text-xs sm:text-sm rounded-full mb-3 sm:mb-4">
-            Nossa história
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4 sm:mb-6">
-            Sobre a <span className="text-gradient">Bitcups</span>
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
-            Uma jornada de reconstrução, criatividade e conquistas
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 bg-secondary text-primary font-semibold text-xs sm:text-sm rounded-full mb-3 sm:mb-4">
+              Nossa história
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4 sm:mb-6">
+              Sobre a <span className="text-gradient">Bitcups</span>
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
+              Uma jornada de reconstrução, criatividade e conquistas
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Story Section */}
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-10 sm:mb-14 md:mb-20">
           {/* Image */}
-          <div className="relative order-2 lg:order-1">
+          <ScrollReveal direction="left" className="relative order-2 lg:order-1">
             <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-card">
               <img
                 src={aboutCraftsmanship}
@@ -72,10 +75,10 @@ export default function About() {
             {/* Decorative elements - smaller on mobile */}
             <div className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-gradient-gold rounded-xl sm:rounded-2xl -z-10" />
             <div className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 w-10 sm:w-12 md:w-16 h-10 sm:h-12 md:h-16 bg-secondary rounded-lg sm:rounded-xl -z-10" />
-          </div>
+          </ScrollReveal>
 
           {/* Story Text */}
-          <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
+          <ScrollReveal direction="right" className="space-y-4 sm:space-y-6 order-1 lg:order-2">
             <div className="relative">
               <div className="absolute -left-2 sm:-left-4 top-0 bottom-0 w-1 bg-gradient-gold rounded-full" />
               <div className="pl-4 sm:pl-6">
@@ -93,54 +96,56 @@ export default function About() {
                 </p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Vision/Mission Cards */}
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-10 sm:mb-12 md:mb-16">
-          <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-card shadow-card border border-border">
-            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-              <div className="p-1.5 sm:p-2 bg-gradient-gold rounded-lg">
-                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+        <ScrollReveal delay={0.1}>
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-10 sm:mb-12 md:mb-16">
+            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-card shadow-card border border-border">
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div className="p-1.5 sm:p-2 bg-gradient-gold rounded-lg">
+                  <Target className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-display font-bold text-foreground">Visão</h3>
               </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-foreground">Visão</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">
+                Ser uma das maiores referências em brindes e produtos personalizados no Brasil, reconhecida pela força do conceito e excelência operacional.
+              </p>
             </div>
-            <p className="text-muted-foreground text-sm sm:text-base">
-              Ser uma das maiores referências em brindes e produtos personalizados no Brasil, reconhecida pela força do conceito e excelência operacional.
-            </p>
-          </div>
 
-          <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-card shadow-card border border-border">
-            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-              <div className="p-1.5 sm:p-2 bg-gradient-gold rounded-lg">
-                <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-card shadow-card border border-border">
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div className="p-1.5 sm:p-2 bg-gradient-gold rounded-lg">
+                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-display font-bold text-foreground">Missão</h3>
               </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-foreground">Missão</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">
+                Produzir e distribuir brindes personalizados com alto padrão de qualidade, oferecendo soluções criativas com processos industriais eficientes.
+              </p>
             </div>
-            <p className="text-muted-foreground text-sm sm:text-base">
-              Produzir e distribuir brindes personalizados com alto padrão de qualidade, oferecendo soluções criativas com processos industriais eficientes.
-            </p>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Values Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {values.map((value, index) => (
-            <div
-              key={value.title}
-              className="group p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-card"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="p-2 sm:p-3 bg-secondary rounded-lg sm:rounded-xl w-fit mb-2 sm:mb-3 md:mb-4 group-hover:bg-gradient-gold transition-all duration-300">
-                <value.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+            <ScrollReveal key={value.title} delay={index * 0.1}>
+              <div
+                className="group p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-card h-full"
+              >
+                <div className="p-2 sm:p-3 bg-secondary rounded-lg sm:rounded-xl w-fit mb-2 sm:mb-3 md:mb-4 group-hover:bg-gradient-gold transition-all duration-300">
+                  <value.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                </div>
+                <h3 className="text-sm sm:text-base md:text-lg font-display font-bold text-foreground mb-1 sm:mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-muted-foreground text-xs sm:text-sm">
+                  {value.description}
+                </p>
               </div>
-              <h3 className="text-sm sm:text-base md:text-lg font-display font-bold text-foreground mb-1 sm:mb-2">
-                {value.title}
-              </h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">
-                {value.description}
-              </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
