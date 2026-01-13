@@ -1,46 +1,39 @@
-import { Coffee, KeyRound, Frame, Shirt, Footprints, GlassWater, Wine, Gift } from 'lucide-react';
+import { Gift } from 'lucide-react';
+import productMugs from '@/assets/product-mugs.jpg';
+import productKeychains from '@/assets/product-keychains.jpg';
+import productShirts from '@/assets/product-shirts.jpg';
+import productFrames from '@/assets/product-frames.jpg';
 
 const products = [
   {
-    icon: Coffee,
-    name: 'Canecas de porcelana',
-    description: 'Alta qualidade e durabilidade para seu café especial.',
+    name: 'Canecas personalizadas',
+    description: 'Canecas de porcelana e polímero com impressão de alta qualidade. Perfeitas para presentes, brindes corporativos e uso pessoal.',
+    image: productMugs,
   },
   {
-    icon: Coffee,
-    name: 'Canecas de polímero',
-    description: 'Leves, resistentes e perfeitas para sublimação.',
-  },
-  {
-    icon: KeyRound,
     name: 'Chaveiros',
-    description: 'Diversos modelos personalizados para sua marca.',
+    description: 'Diversos modelos personalizados em formatos variados. Ideais para lembranças, eventos e promoções.',
+    image: productKeychains,
   },
   {
-    icon: Frame,
-    name: 'Quadros',
-    description: 'Arte e decoração com sua identidade visual.',
+    name: 'Camisas e vestuário',
+    description: 'Vestuário personalizado para eventos, empresas e uso pessoal. Alta qualidade de impressão e tecido.',
+    image: productShirts,
   },
   {
-    icon: Shirt,
-    name: 'Camisas',
-    description: 'Vestuário personalizado para eventos e empresas.',
+    name: 'Quadros e decoração',
+    description: 'Quadros personalizados com fotos e artes. Transforme suas memórias em decoração elegante.',
+    image: productFrames,
   },
-  {
-    icon: Footprints,
-    name: 'Sandálias',
-    description: 'Conforto e estilo com sua marca estampada.',
-  },
-  {
-    icon: GlassWater,
-    name: 'Copos',
-    description: 'Variedade de modelos para todas as ocasiões.',
-  },
-  {
-    icon: Wine,
-    name: 'Garrafas',
-    description: 'Térmicas e personalizadas para o dia a dia.',
-  },
+];
+
+const additionalProducts = [
+  'Sandálias personalizadas',
+  'Copos e garrafas térmicas',
+  'Azulejos decorativos',
+  'Almofadas personalizadas',
+  'Mousepad',
+  'Agendas e cadernos',
 ];
 
 export default function Products() {
@@ -60,39 +53,64 @@ export default function Products() {
           </p>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {/* Products Grid with Images */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           {products.map((product, index) => (
             <div
               key={product.name}
-              className="group relative p-6 rounded-2xl bg-card border border-border overflow-hidden transition-all duration-300 hover:shadow-card hover:border-primary/30"
+              className="group relative rounded-2xl overflow-hidden bg-card border border-border shadow-card transition-all duration-300 hover:shadow-xl hover:border-primary/30"
             >
-              {/* Shimmer effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              {/* Image */}
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              </div>
               
-              <div className="relative z-10">
-                <div className="p-4 bg-gradient-gold rounded-2xl w-fit mb-5 shadow-gold/30 shadow-lg">
-                  <product.icon className="w-8 h-8 text-primary-foreground" />
-                </div>
-                <h3 className="text-lg font-display font-bold text-foreground mb-2">
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-display font-bold text-foreground mb-2">
                   {product.name}
                 </h3>
                 <p className="text-muted-foreground text-sm">
                   {product.description}
                 </p>
               </div>
+
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-gradient-gold/0 group-hover:bg-gradient-gold/5 transition-all duration-300" />
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-3 p-4 bg-card rounded-2xl border border-border shadow-soft">
-            <Gift className="w-6 h-6 text-primary" />
-            <span className="text-foreground font-medium">
-              E muito mais! Entre em contato para conhecer todo o catálogo.
-            </span>
+        {/* Additional Products */}
+        <div className="bg-card rounded-2xl border border-border p-8 shadow-soft">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-3 bg-gradient-gold rounded-xl">
+              <Gift className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <h3 className="text-xl font-display font-bold text-foreground">
+              E muito mais produtos disponíveis
+            </h3>
           </div>
+          
+          <div className="flex flex-wrap gap-3">
+            {additionalProducts.map((product) => (
+              <span
+                key={product}
+                className="px-4 py-2 bg-secondary rounded-full text-foreground text-sm font-medium"
+              >
+                {product}
+              </span>
+            ))}
+          </div>
+
+          <p className="mt-6 text-muted-foreground">
+            Entre em contato para conhecer nosso catálogo completo e solicitar um orçamento personalizado.
+          </p>
         </div>
       </div>
     </section>

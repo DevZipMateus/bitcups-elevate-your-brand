@@ -1,4 +1,5 @@
 import { Crown, Target, Heart, TrendingUp, Sparkles, Users } from 'lucide-react';
+import aboutCraftsmanship from '@/assets/about-craftsmanship.jpg';
 
 const values = [
   {
@@ -42,8 +43,23 @@ export default function About() {
 
         {/* Story Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* Image */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative rounded-2xl overflow-hidden shadow-card">
+              <img
+                src={aboutCraftsmanship}
+                alt="Artesão trabalhando em caneca personalizada na oficina Bitcups"
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            </div>
+            {/* Decorative element */}
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-gold rounded-2xl -z-10" />
+            <div className="absolute -top-4 -left-4 w-16 h-16 bg-secondary rounded-xl -z-10" />
+          </div>
+
           {/* Story Text */}
-          <div className="space-y-6">
+          <div className="space-y-6 order-1 lg:order-2">
             <div className="relative">
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-gold rounded-full" />
               <div className="pl-6">
@@ -62,32 +78,32 @@ export default function About() {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Vision/Mission Cards */}
-          <div className="space-y-6">
-            <div className="p-6 rounded-2xl bg-gradient-card shadow-card border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-gradient-gold rounded-lg">
-                  <Target className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <h3 className="text-xl font-display font-bold text-foreground">Visão</h3>
+        {/* Vision/Mission Cards */}
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          <div className="p-6 rounded-2xl bg-gradient-card shadow-card border border-border">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-gradient-gold rounded-lg">
+                <Target className="w-5 h-5 text-primary-foreground" />
               </div>
-              <p className="text-muted-foreground">
-                Ser uma das maiores referências em brindes e produtos personalizados no Brasil, reconhecida pela força do conceito e excelência operacional.
-              </p>
+              <h3 className="text-xl font-display font-bold text-foreground">Visão</h3>
             </div>
+            <p className="text-muted-foreground">
+              Ser uma das maiores referências em brindes e produtos personalizados no Brasil, reconhecida pela força do conceito e excelência operacional.
+            </p>
+          </div>
 
-            <div className="p-6 rounded-2xl bg-gradient-card shadow-card border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-gradient-gold rounded-lg">
-                  <Heart className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <h3 className="text-xl font-display font-bold text-foreground">Missão</h3>
+          <div className="p-6 rounded-2xl bg-gradient-card shadow-card border border-border">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-gradient-gold rounded-lg">
+                <Heart className="w-5 h-5 text-primary-foreground" />
               </div>
-              <p className="text-muted-foreground">
-                Produzir e distribuir brindes personalizados com alto padrão de qualidade, oferecendo soluções criativas com processos industriais eficientes.
-              </p>
+              <h3 className="text-xl font-display font-bold text-foreground">Missão</h3>
             </div>
+            <p className="text-muted-foreground">
+              Produzir e distribuir brindes personalizados com alto padrão de qualidade, oferecendo soluções criativas com processos industriais eficientes.
+            </p>
           </div>
         </div>
 
