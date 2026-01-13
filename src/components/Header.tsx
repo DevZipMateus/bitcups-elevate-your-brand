@@ -156,8 +156,14 @@ export default function Header() {
         </nav>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div ref={menuRef} className="md:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background shadow-lg animate-fade-in border-t border-border">
+        <div 
+          ref={menuRef} 
+          className={`md:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background shadow-lg border-t border-border overflow-hidden transition-all duration-300 ease-out ${
+            isMobileMenuOpen 
+              ? 'max-h-96 opacity-100' 
+              : 'max-h-0 opacity-0 pointer-events-none'
+          }`}
+        >
             <ul className="flex flex-col py-4">
               {navLinks.map(link => (
                 <li key={link.href}>
@@ -192,7 +198,6 @@ export default function Header() {
               </li>
             </ul>
           </div>
-        )}
       </div>
     </header>
   );
