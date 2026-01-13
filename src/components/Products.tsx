@@ -7,6 +7,7 @@ import productFrames from '@/assets/product-frames.jpg';
 import productSandals from '@/assets/product-sandals.jpg';
 import productCups from '@/assets/product-cups.jpg';
 import productBottles from '@/assets/product-bottles.jpg';
+import { useParallax } from '@/hooks/useParallax';
 
 const products = [
   {
@@ -52,9 +53,39 @@ const products = [
 ];
 
 export default function Products() {
+  const parallaxOffset = useParallax(0.08);
+
   return (
-    <section id="produtos" className="py-20 lg:py-28 bg-secondary/50">
-      <div className="section-container">
+    <section id="produtos" className="py-20 lg:py-28 bg-secondary/50 relative overflow-hidden">
+      {/* Parallax background elements */}
+      <div 
+        className="absolute -top-20 left-1/4 w-96 h-96 bg-gradient-gold/5 rounded-full blur-3xl"
+        style={{ transform: `translateY(${parallaxOffset * 3}px)` }}
+      />
+      <div 
+        className="absolute -bottom-20 right-1/4 w-80 h-80 bg-orange/5 rounded-full blur-3xl"
+        style={{ transform: `translateY(${parallaxOffset * -2}px)` }}
+      />
+      
+      {/* Floating decorative elements */}
+      <div 
+        className="absolute top-32 right-20 w-6 h-6 opacity-10"
+        style={{ transform: `translateY(${parallaxOffset * 4}px) rotate(${parallaxOffset * 0.2}deg)` }}
+      >
+        <svg viewBox="0 0 100 80" fill="currentColor" className="text-primary">
+          <path d="M50 0L65 30L100 40L75 60L80 100H20L25 60L0 40L35 30L50 0Z" />
+        </svg>
+      </div>
+      <div 
+        className="absolute bottom-32 left-20 w-10 h-10 opacity-10"
+        style={{ transform: `translateY(${parallaxOffset * -3}px) rotate(${parallaxOffset * -0.15}deg)` }}
+      >
+        <svg viewBox="0 0 100 80" fill="currentColor" className="text-primary">
+          <path d="M50 0L65 30L100 40L75 60L80 100H20L25 60L0 40L35 30L50 0Z" />
+        </svg>
+      </div>
+
+      <div className="section-container relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 bg-gradient-gold text-primary-foreground font-semibold text-sm rounded-full mb-4">
@@ -68,19 +99,21 @@ export default function Products() {
           </p>
         </div>
 
-        {/* Products Grid with Images */}
+        {/* Products Grid with Images and Parallax */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <div
               key={product.name}
               className="group relative rounded-2xl overflow-hidden bg-card border border-border shadow-card transition-all duration-300 hover:shadow-xl hover:border-primary/30"
+              style={{ transform: `translateY(${parallaxOffset * (0.3 + (index % 4) * 0.2)}px)` }}
             >
-              {/* Image */}
+              {/* Image with parallax effect inside */}
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  style={{ transform: `scale(1.05) translateY(${parallaxOffset * 0.1}px)` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 
@@ -106,7 +139,10 @@ export default function Products() {
         </div>
 
         {/* CTA */}
-        <div className="bg-card rounded-2xl border border-border p-8 shadow-soft text-center">
+        <div 
+          className="bg-card rounded-2xl border border-border p-8 shadow-soft text-center"
+          style={{ transform: `translateY(${parallaxOffset * 0.4}px)` }}
+        >
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-gradient-gold rounded-xl">
               <Gift className="w-6 h-6 text-primary-foreground" />
