@@ -27,7 +27,7 @@ const products = [
   },
   {
     name: 'Quadros e decoração',
-    description: 'Quadros personalizados com fotos e artes. Transforme memórias em decoração elegante.',
+    description: 'Quadros em diversos materiais, com estilos e artes únicas.',
     image: productFrames,
   },
   {
