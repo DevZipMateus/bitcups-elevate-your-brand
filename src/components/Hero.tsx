@@ -77,12 +77,12 @@ export default function Hero() {
 
         {/* Slogan */}
         <p className="text-gold-light text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wide mb-3 sm:mb-4 md:mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-          Artigos personalizados
+          Brindes personalizados
         </p>
 
         {/* H2 - Description */}
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold text-white max-w-4xl mx-auto leading-tight mb-4 sm:mb-6 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-          Transformamos suas ideias em{' '}
+          Unimos artes prontas e personalização para transformar ideias em{' '}
           <span className="text-gradient">produtos únicos</span> e memoráveis
         </h2>
 

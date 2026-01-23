@@ -138,8 +138,8 @@ export default function Products() {
             </div>
             
             <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6 max-w-xl mx-auto px-2">
-              Trabalhamos também com azulejos, almofadas, mousepads, agendas e diversos outros produtos personalizados.
-              Entre em contato para conhecer nosso catálogo completo.
+              A Bitcups cresce junto com suas ideias, trazendo constantemente novos produtos e soluções personalizadas.
+              Novas atualizações serão realizadas de forma contínua.
             </p>
 
             <a
