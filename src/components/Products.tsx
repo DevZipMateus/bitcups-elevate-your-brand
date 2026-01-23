@@ -1,5 +1,5 @@
 import { Gift } from 'lucide-react';
-import productMugs from '@/assets/product-mugs.jpg';
+import productMugs from '@/assets/product-mugs.png';
 import productPolymerMug from '@/assets/product-polymer-mug.png';
 import productKeychains from '@/assets/product-keychains.jpg';
 import productShirts from '@/assets/product-shirts.jpg';
