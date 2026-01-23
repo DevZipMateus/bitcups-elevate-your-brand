@@ -15,9 +15,6 @@ export default function Footer() {
               alt="Bitcups"
               className="h-28 sm:h-32 md:h-36 lg:h-40 w-auto mx-auto sm:mx-0"
             />
-            <p className="text-white/70 text-xs sm:text-sm italic max-w-xs mx-auto sm:mx-0">
-              "Outro rei não existirá, porque um raio não cai duas vezes no mesmo lugar."
-            </p>
           </div>
 
           {/* Quick Links */}

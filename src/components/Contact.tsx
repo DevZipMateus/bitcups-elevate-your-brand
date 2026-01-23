@@ -153,7 +153,7 @@ export default function Contact() {
           <ScrollReveal direction="right">
             <div className="h-[280px] sm:h-[350px] md:h-[400px] lg:h-full min-h-[280px] sm:min-h-[350px] md:min-h-[400px] rounded-xl sm:rounded-2xl overflow-hidden border border-border shadow-card">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d-38.5!3d-12.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU3JzAwLjAiUyAzOMKwMzAnMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000!5m2!1spt-BR!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.0!2d-38.4833!3d-12.9667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7161b0c5e6a3b77%3A0x1!2sCEP%2040310-595%2C%20Salvador%20-%20BA!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
