@@ -1,6 +1,6 @@
 import { Gift } from 'lucide-react';
 import productMugs from '@/assets/product-mugs.jpg';
-import productPolymerMug from '@/assets/product-polymer-mug.jpg';
+import productPolymerMug from '@/assets/product-polymer-mug.png';
 import productKeychains from '@/assets/product-keychains.jpg';
 import productShirts from '@/assets/product-shirts.jpg';
 import productFrames from '@/assets/product-frames.jpg';
@@ -17,7 +17,7 @@ const products = [
   },
   {
     name: 'Canecas de polímero',
-    description: 'Leves, resistentes e perfeitas para sublimação. Cores vibrantes e duradouras.',
+    description: 'Leves e resistentes. Cores vibrantes que não desbota.',
     image: productPolymerMug,
   },
   {
