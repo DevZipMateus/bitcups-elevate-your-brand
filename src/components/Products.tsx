@@ -1,7 +1,7 @@
 import { Gift } from 'lucide-react';
 import productMugs from '@/assets/product-mugs.png';
 import productPolymerMug from '@/assets/product-polymer-mug.png';
-import productKeychains from '@/assets/product-keychains.jpg';
+import productKeychains from '@/assets/product-keychains.png';
 import productShirts from '@/assets/product-shirts.jpg';
 import productFrames from '@/assets/product-frames.jpg';
 import productSandals from '@/assets/product-sandals.jpg';
@@ -22,7 +22,7 @@ const products = [
   },
   {
     name: 'Chaveiros',
-    description: 'Diversos modelos personalizados em formatos variados. Ideais para lembranças e eventos.',
+    description: 'Diversos modelos em formatos variados. Ideais para lembranças e eventos.',
     image: productKeychains,
   },
   {
