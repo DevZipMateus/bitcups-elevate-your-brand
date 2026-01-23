@@ -5,7 +5,7 @@ import productKeychains from '@/assets/product-keychains.png';
 import productShirts from '@/assets/product-shirts.jpg';
 import productFrames from '@/assets/product-frames.jpg';
 import productSandals from '@/assets/product-sandals.jpg';
-import productCups from '@/assets/product-cups.jpg';
+import productCups from '@/assets/product-cups.png';
 import productBottles from '@/assets/product-bottles.jpg';
 import ScrollReveal from './ScrollReveal';
 
@@ -41,7 +41,7 @@ const products = [
     image: productSandals,
   },
   {
-    name: 'Copos',
+    name: 'Copos térmicos',
     description: 'Variedade de modelos para todas as ocasiões. Perfeitos para presentes e brindes.',
     image: productCups,
   },
