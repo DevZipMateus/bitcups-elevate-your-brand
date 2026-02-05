@@ -63,6 +63,8 @@ export default function Hero() {
 
       {/* Content */}
       <div className="section-container relative z-10 text-center pt-16 sm:pt-20 px-4 sm:px-6">
+        {/* Dark box behind content for better readability */}
+        <div className="bg-black/60 backdrop-blur-sm rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 max-w-5xl mx-auto">
         {/* Logo */}
         <div className="mb-4 sm:mb-6 md:mb-8 animate-fade-up">
           <img
@@ -120,6 +122,7 @@ export default function Hero() {
             </svg>
             Vitrine
           </Link>
+        </div>
         </div>
       </div>
 
