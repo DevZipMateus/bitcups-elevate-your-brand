@@ -64,7 +64,7 @@ export default function Hero() {
       {/* Content */}
       <div className="section-container relative z-10 text-center pt-16 sm:pt-20 px-4 sm:px-6">
         {/* Dark box behind content for better readability */}
-        <div className="bg-black/60 backdrop-blur-sm rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 max-w-5xl mx-auto">
+        <div className="bg-black/40 backdrop-blur-sm rounded-2xl px-6 sm:px-8 md:px-10 lg:px-12 pt-6 sm:pt-8 md:pt-10 pb-4 sm:pb-6 md:pb-8 max-w-5xl mx-auto">
         {/* Logo */}
         <div className="mb-4 sm:mb-6 md:mb-8 animate-fade-up">
           <img
